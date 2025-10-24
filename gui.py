@@ -1,7 +1,3 @@
-# integral_gui_final.py
-# Лабораторна робота: Чисельні методи обчислення інтегралів
-# Автор: Бондар Віктор
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 import numpy as np
@@ -59,7 +55,7 @@ class IntegralApp:
         root.title("Обчислення визначених інтегралів — Бондар Віктор")
         root.geometry("850x580")
 
-        # --- Вибір функції ---
+        #  Вибір функції
         ttk.Label(root, text="Оберіть функцію:", font=("Arial", 11, "bold")).pack(anchor=tk.W, padx=10, pady=(10, 2))
         self.combo = ttk.Combobox(root, values=list(FUNCTIONS.keys()), state="readonly", width=55)
         self.combo.pack(anchor=tk.W, padx=10)
@@ -76,8 +72,7 @@ class IntegralApp:
         self.entry_b = ttk.Entry(frm_limits, width=10)
         self.entry_b.grid(row=0, column=3, padx=4)
         ttk.Button(frm_limits, text="Оновити межі", command=self.update_limits).grid(row=0, column=4, padx=10)
-
-        # --- Вибір N ---
+        # Вибір N 
         frm_n = ttk.Frame(root)
         frm_n.pack(anchor=tk.W, padx=10, pady=(5, 5))
         ttk.Label(frm_n, text="Кількість січень (N):", font=("Arial", 10, "bold")).grid(row=0, column=0, padx=(0, 10))
@@ -85,7 +80,7 @@ class IntegralApp:
         self.combo_n.grid(row=0, column=1)
         self.combo_n.current(0)
 
-        # --- Кнопки методів ---
+        # Кнопки методів 
         frm_buttons = ttk.Frame(root)
         frm_buttons.pack(anchor=tk.W, padx=10, pady=(10, 5))
         ttk.Label(frm_buttons, text="Методи обчислення:", font=("Arial", 11, "bold")).pack(anchor=tk.W)
@@ -93,7 +88,7 @@ class IntegralApp:
         ttk.Button(frm_buttons, text="Метод трапецій", width=28, command=self.run_trapezoid).pack(pady=2)
         ttk.Button(frm_buttons, text="Метод Монте-Карло", width=28, command=self.run_montecarlo).pack(pady=2)
 
-        # --- Таблиця результатів ---
+        # Таблиця результатів
         ttk.Label(root, text="Результати обчислень:", font=("Arial", 11, "bold")).pack(anchor=tk.W, padx=10, pady=(10, 2))
         cols = ("N", "Аналітичне", "Прямокутники", "Трапеції", "Монте-Карло")
         self.tree = ttk.Treeview(root, columns=cols, show="headings", height=10)
@@ -201,3 +196,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = IntegralApp(root)
     root.mainloop()
+
